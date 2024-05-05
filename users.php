@@ -94,16 +94,33 @@
                     <th>Last Name</th>
                     <th>Email Address</th>
                     <th>Phone Number</th>
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    include_once 'config/db_con.php';
+                    $sql = "SELECT * FROM users";
+                    $result = mysqli_query($con, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                      foreach ($result as $row) {
+                    ?>
                   <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['fname']; ?></td>
+                    <td><?php echo $row['lname']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
+                    <td>
+                      <button type="submit" class="btn btn-sm btn-info" name="edit">Edit</button>
+                      <button type="submit" class="btn btn-sm btn-danger" name="delete">Delete</button>
+                    </td>
                   </tr>
+                  <?php
+                      }
+                    }
+                    ?>
                   </tbody>
                   <tfoot>
                   <tr>
@@ -112,6 +129,7 @@
                     <th>Last Name</th>
                     <th>Email Address</th>
                     <th>Phone Number</th>
+                    <th>Action</th>
                   </tr>
                   </tfoot>
                 </table>
