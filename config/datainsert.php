@@ -11,7 +11,7 @@ if(isset($_POST['adduser'])){
     $sql = "INSERT INTO users (fname, lname, email, phone, pass) VALUES ('$fname', '$lname', '$email', '$phone', '$pass')";
     
     if(mysqli_query($con, $sql)){
-        header("Location: users.php");
+        header("location: ../users.php");
     }else{
         echo "Error: ". $sql. "<br>". mysqli_error($con);
     }

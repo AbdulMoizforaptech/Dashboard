@@ -29,7 +29,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>DataTables</h1>
-            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#users">Add User</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#users">Add User</button>
             <!-- Modal -->
 <div class="modal fade" id="users" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -113,8 +113,42 @@
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
                     <td>
-                      <button type="submit" class="btn btn-sm btn-info" name="edit">Edit</button>
+                      <button type="submit" class="btn btn-sm btn-info"data-toggle="modal" data-target="#edit" name="edit">Edit</button>
                       <button type="submit" class="btn btn-sm btn-danger" name="delete">Delete</button>
+            <!-- Modal -->
+            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <form action="config/datainsert.php" method="post">
+            <label for="fname">First Name:</label>
+            <input type="text" class="form-control" name="fname" value="<?php echo $row['fname'] ?>" required><br>
+            <label for="lname">Last Name:</label>
+            <input type="text" class="form-control" name="lname" value="<?php echo $row['lname'] ?>" required><br>
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="<?php echo $row['email'] ?>" required><br>
+            <label for="phone">Phone Number:</label>
+            <input type="number" class="form-control" name="phone" value="<?php echo $row['phone'] ?>" required><br>
+            <label for="pass">Password:</label>
+            <input type="password" class="form-control" name="pass" value="<?php echo $row['pass'] ?>" required><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" name="edituser">Edit User</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- /Modal -->
                     </td>
                   </tr>
                   <?php
