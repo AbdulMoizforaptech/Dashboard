@@ -113,7 +113,7 @@
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
                     <td>
-                      <button type="submit" class="btn btn-sm btn-info"data-toggle="modal" data-target="#edit" name="edit">Edit</button>
+                      <button type="submit" class="btn btn-sm btn-info"data-toggle="modal" data-target="#edit" name="edit" value="<?php echo $row['id'] ?>">Edit</button>
                       <button type="submit" class="btn btn-sm btn-danger" name="delete">Delete</button>
             <!-- Modal -->
             <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
