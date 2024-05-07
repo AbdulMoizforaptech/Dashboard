@@ -130,6 +130,7 @@
                   <div class="modal-body">
                     <div class="form-group">
                       <form action="config/datainsert.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <label for="fname">First Name:</label>
                         <input type="text" class="form-control" name="fname" value="<?php echo $row['fname']; ?>" required><br>
                         <label for="lname">Last Name:</label>
