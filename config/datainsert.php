@@ -21,7 +21,7 @@ if(isset($_POST['adduser'])){
 }
 
 
-//Edit Uder to database
+//Edit user to database
 if(isset($_POST['edituser'])){
     $id = $_POST['id'];
     $fname = $_POST['fname'];
@@ -31,6 +31,27 @@ if(isset($_POST['edituser'])){
     $pass = $_POST['pass'];
     
     $sql = "UPDATE users SET fname = '$fname', lname = '$lname', email = '$email', phone = '$phone', pass = '$pass' WHERE id = '$id'";
+    
+    if(mysqli_query($con, $sql)){
+        header("location: ../users.php");
+    }else{
+        echo "Error: ". $sql. "<br>". mysqli_error($con);
+    }
+    
+    mysqli_close($con);
+}
+
+
+//Delete user from database
+if(isset($_POST['deleteuser'])){
+    $id = $_POST['id'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $pass = $_POST['pass'];
+    
+    $sql = "DELETE FROM users WHERE id = $id";
     
     if(mysqli_query($con, $sql)){
         header("location: ../users.php");

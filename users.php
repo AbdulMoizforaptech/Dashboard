@@ -30,7 +30,7 @@
           <div class="col-sm-6">
             <h1>DataTables</h1>
             <button class="btn btn-primary" data-toggle="modal" data-target="#users">Add User</button>
-            <!-- Modal -->
+            <!-- Modal Add User -->
 <div class="modal fade" id="users" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -63,7 +63,7 @@
     </div>
   </div>
 </div>
-        <!-- /Modal -->
+        <!-- /Modal Add User -->
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -115,9 +115,9 @@
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
                     <td>
-                      <button type="submit" class="btn btn-sm btn-info"data-toggle="modal" data-target="#edit<?php echo $Num; ?>" name="edit" value="<?php echo $row['id'] ?>">Edit</button>
-                      <button type="submit" class="btn btn-sm btn-danger" name="delete">Delete</button>
-            <!-- Modal -->
+                      <button type="submit" class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit<?php echo $Num; ?>" name="edit" value="<?php echo $row['id'] ?>">Edit</button>
+                      <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete<?php echo$Num; ?>" name="delete" value="<?php echo $row['id'] ?>">Delete</button>
+            <!-- Modal Edit User -->
             <div class="modal fade" id="edit<?php echo $Num; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -151,7 +151,45 @@
                 </div>
               </div>
             </div>
-        <!-- /Modal -->
+        <!-- /Modal Edit User -->
+
+        <!-- Modal Delete User -->
+        <div class="modal fade" id="delete<?php echo$Num; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete this user?</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <form method="post">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <label for="fname">First Name:</label>
+                        <input type="text" class="form-control" name="fname" value="<?php echo $row['fname']; ?>" readonly><br>
+                        <label for="lname">Last Name:</label>
+                        <input type="text" class="form-control" name="lname" value="<?php echo $row['lname']; ?>" readonly><br>
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" value="<?php echo $row['email']; ?>" readonly><br>
+                        <label for="phone">Phone Number:</label>
+                        <input type="number" class="form-control" name="phone" value="<?php echo $row['phone']; ?>" readonly><br>
+                        <label for="pass">Password:</label>
+                        <input type="password" class="form-control" name="pass" value="<?php echo $row['pass']; ?>" readonly><br>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger" name="deleteuser">Delete User</button>
+
+                    
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!-- /Modal Delete User -->
                     </td>
                   </tr>
                   <?php
@@ -171,6 +209,8 @@
                   </tfoot>
                 </table>
               </div>
+
+              
               <!-- /.card-body -->
             </div>
             <!-- /.card --> 
