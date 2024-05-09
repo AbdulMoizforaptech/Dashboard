@@ -45,13 +45,8 @@ if(isset($_POST['edituser'])){
 //Delete user from database
 if(isset($_POST['deleteuser'])){
     $id = $_POST['id'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $pass = $_POST['pass'];
     
-    $sql = "DELETE FROM users WHERE id = $id";
+    $sql = "DELETE FROM users WHERE id='$id'";
     
     if(mysqli_query($con, $sql)){
         header("location: ../users.php");
