@@ -28,6 +28,11 @@
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
+        <div class="row mt-2 mb-2">
+          <div class="col-sm-6">
+            <h3><?php include ('message.php'); ?></h3>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
